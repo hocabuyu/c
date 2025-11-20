@@ -1,0 +1,199 @@
+.floating-call-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    pointer-events: none;
+    width: calc(100% - 40px);
+    max-width: 420px;
+    animation: containerFloat 6s ease-in-out infinite;
+}
+
+.floating-call-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+    color: white !important;
+    padding: 22px 40px;
+    font-weight: 800;
+    text-decoration: none !important;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    border-radius: 65px;
+    pointer-events: auto;
+    box-shadow: 0 12px 35px rgba(58, 123, 213, 0.6);
+    animation: 
+        pulseGlow 3.5s infinite alternate,
+        colorWave 15s infinite linear;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    width: 100%;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.floating-call-button .phone-icon {
+    margin-right: 16px;
+    transition: all 0.6s ease;
+    animation: 
+        iconFloat 3.5s ease-in-out infinite,
+        iconShine 4s infinite;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+}
+
+.floating-call-button:hover {
+    transform: translateY(-10px) scale(1.06) rotateX(12deg);
+    box-shadow: 0 18px 45px rgba(58, 123, 213, 0.8),
+               0 0 25px rgba(255, 255, 255, 0.7);
+    animation: none;
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    letter-spacing: 1.5px;
+}
+
+.floating-call-button:hover .phone-icon {
+    animation: iconRing 0.9s infinite, iconPulse 1.5s infinite;
+    transform: scale(1.25);
+}
+
+.floating-call-button:active {
+    transform: translateY(3px) scale(0.97);
+    box-shadow: 0 8px 25px rgba(58, 123, 213, 0.5);
+    transition: all 0.1s ease;
+}
+
+/* YENİ VE GELİŞMİŞ ANİMASYONLAR */
+@keyframes containerFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    25% { transform: translateX(-50%) translateY(-12px) rotate(1.2deg); }
+    50% { transform: translateX(-50%) translateY(0) rotate(-1.2deg); }
+    75% { transform: translateX(-50%) translateY(-7px) rotate(0.6deg); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 12px 35px rgba(58, 123, 213, 0.6); }
+    100% { box-shadow: 0 12px 45px rgba(58, 123, 213, 0.9), 
+                     0 0 30px rgba(255, 255, 255, 0.8); }
+}
+
+@keyframes colorWave {
+    0% { background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%); }
+    20% { background: linear-gradient(135deg, #00d2ff 0%, #00c9ff 100%); }
+    40% { background: linear-gradient(135deg, #00c9ff 0%, #00b4ff 100%); }
+    60% { background: linear-gradient(135deg, #00b4ff 0%, #3a7bd5 100%); }
+    80% { background: linear-gradient(135deg, #3a7bd5 0%, #4776d8 100%); }
+    100% { background: linear-gradient(135deg, #4776d8 0%, #3a7bd5 100%); }
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-10px) rotate(6deg) scale(1.1); }
+}
+
+@keyframes iconShine {
+    0% { filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3)); }
+    50% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.8)); }
+    100% { filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3)); }
+}
+
+@keyframes iconRing {
+    0% { transform: rotate(0deg) scale(1.25); }
+    15% { transform: rotate(18deg) scale(1.25); }
+    30% { transform: rotate(-18deg) scale(1.25); }
+    45% { transform: rotate(12deg) scale(1.25); }
+    60% { transform: rotate(-12deg) scale(1.25); }
+    75% { transform: rotate(6deg) scale(1.25); }
+    90% { transform: rotate(-6deg) scale(1.25); }
+    100% { transform: rotate(0deg) scale(1.25); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1.25); }
+    50% { transform: scale(1.35); }
+}
+
+/* 3D VE IŞIK EFEKTLERİ */
+.floating-call-button::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    right: -10%;
+    bottom: -10%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 70px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: -1;
+}
+
+.floating-call-button:hover::before {
+    opacity: 1;
+    animation: lightPulse 2s infinite;
+}
+
+.floating-call-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 65px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.floating-call-button:hover::after {
+    opacity: 0.6;
+}
+
+@keyframes lightPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* PARLAK ÇİZGİ EFEKTİ */
+.floating-call-button .highlight-line {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    transition: left 1s ease;
+}
+
+.floating-call-button:hover .highlight-line {
+    left: 150%;
+}
+
+/* RESPONSIVE TASARIM */
+@media (max-width: 768px) {
+    .floating-call-container {
+        width: calc(100% - 30px);
+        bottom: 20px;
+        max-width: 380px;
+    }
+    .floating-call-button {
+        padding: 20px 30px;
+        font-size: 22px;
+        border-radius: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-call-button {
+        padding: 18px 25px;
+        font-size: 20px;
+    }
+}
