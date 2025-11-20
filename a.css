@@ -1,100 +1,99 @@
 /* ==========================================
-   ULTRA RANDOM TELEFON BUTONU - v9.1
-   Her girişte tasarım, font, renk, animasyon değişir
+   ULTRA RANDOM BUTTON – FINAL v10 PRO MAX
    ========================================== */
 
-/* CSS Değişkenleri – JS bunları rastgele değiştirir */
+/* CSS variables (JS modifies them) */
 :root {
-    --btn-bg1: #3a7bd5;
-    --btn-bg2: #00d2ff;
-    --btn-radius: 60px;
-    --btn-font: 'Arial', sans-serif;
-    --btn-shadow: rgba(0,0,0,0.35);
-    --btn-size: 22px;
+    --btn-bg1: #3a7bd5 !important;
+    --btn-bg2: #00d2ff !important;
+    --btn-radius: 60px !important;
+    --btn-font: 'Arial', sans-serif !important;
+    --btn-shadow: rgba(0,0,0,0.40) !important;
+    --btn-size: 22px !important;
 }
 
-/* KONTEYNER */
+/* CONTAINER */
 .floating-call-container {
     position: fixed;
-    bottom: 28px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
     pointer-events: none;
     width: calc(100% - 40px);
     max-width: 420px;
+    z-index: 999999;
 }
 
-/* BUTON */
+/* BUTTON */
 .floating-call-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 22px 40px;
-    border-radius: var(--btn-radius);
-    font-family: var(--btn-font);
-    font-size: var(--btn-size);
+    width: 100% !important;
+
+    padding: 22px 40px !important;
+    font-family: var(--btn-font) !important;
+    font-size: var(--btn-size) !important;
+    border-radius: var(--btn-radius) !important;
+    pointer-events: auto !important;
     text-decoration: none !important;
-    font-weight: 900;
-    pointer-events: auto;
-    cursor: pointer;
 
-    background: linear-gradient(135deg, var(--btn-bg1), var(--btn-bg2));
-    color: #fff;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    box-shadow: 0 15px 40px var(--btn-shadow);
+    background: linear-gradient(135deg, var(--btn-bg1), var(--btn-bg2)) !important;
+    color: #fff !important;
+    font-weight: 900 !important;
 
-    transition: .35s ease;
+    text-shadow: 0px 2px 6px rgba(0,0,0,0.35) !important;
+    box-shadow: 0 18px 40px var(--btn-shadow) !important;
+
+    transition: all .40s ease !important;
 }
 
-/* İKON */
+/* ICON */
 .floating-call-button .phone-icon {
-    margin-right: 16px;
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
-    transition: .3s ease;
+    margin-right: 16px !important;
+    transition: all .4s ease !important;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25)) !important;
 }
 
 /* HOVER */
 .floating-call-button:hover {
-    transform: scale(1.06) translateY(-5px);
-    box-shadow: 0 22px 50px rgba(0,0,0,0.45);
-    letter-spacing: 1px;
+    transform: scale(1.07) translateY(-6px) !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 28px 60px var(--btn-shadow) !important;
 }
-
-/* HOVER ICON */
 .floating-call-button:hover .phone-icon {
-    transform: scale(1.2);
+    transform: scale(1.35) !important;
 }
 
-/* RANDOM ANİMASYON – JS seçer */
+/* RANDOM ANIMATIONS */
 .random-bounce {
-    animation: randBounce 2.6s infinite ease-in-out;
+    animation: randBounce 2.5s infinite ease-in-out !important;
 }
 @keyframes randBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+
+.random-pulse {
+    animation: randPulse 3s infinite ease-in-out !important;
+}
+@keyframes randPulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
 .random-rotate {
-    animation: randRotate 4s infinite linear;
+    animation: randRotate 6s infinite linear !important;
 }
 @keyframes randRotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.random-pulse {
-    animation: randPulse 3s infinite;
-}
-@keyframes randPulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-}
-
 /* RESPONSIVE */
 @media (max-width: 480px) {
     .floating-call-button {
-        padding: 18px 25px;
-        font-size: calc(var(--btn-size) - 1px);
+        padding: 18px 25px !important;
+        font-size: calc(var(--btn-size) - 1px) !important;
     }
 }
