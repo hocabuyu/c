@@ -1,0 +1,72 @@
+/* ==========================================
+   RANDOM BUTTON ENGINE – v15 PRO MAX
+   ========================================== */
+
+.floating-call-container {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 40px) !important;
+    max-width: 420px !important;
+    pointer-events: none !important;
+    z-index: 9999999 !important;
+}
+
+/* Button base */
+.floating-call-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    padding: 22px 40px !important;
+
+    color: #fff !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+
+    pointer-events: auto !important;
+    transition: all .35s ease !important;
+
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35) !important;
+    box-sizing: border-box !important;
+}
+
+.floating-call-button .phone-icon {
+    margin-right: 16px !important;
+    transition: .35s ease !important;
+}
+
+/* Hover */
+.floating-call-button:hover {
+    transform: scale(1.08) translateY(-5px) rotateX(6deg) !important;
+    letter-spacing: 1px !important;
+}
+.floating-call-button:hover .phone-icon {
+    transform: scale(1.30) !important;
+}
+
+/* Animations */
+.random-bounce { animation: bounce 2.1s infinite ease-in-out !important; }
+@keyframes bounce {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+.random-pulse { animation: pulse 2.8s infinite ease-in-out !important; }
+@keyframes pulse {
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+}
+
+.random-tilt { animation: tilt 3.5s infinite ease-in-out !important; }
+@keyframes tilt {
+    0%,100%{transform:rotate(0deg);}
+    50%{transform:rotate(4deg);}
+}
+
+/* Mobile */
+@media (max-width: 480px){
+    .floating-call-button{ padding:18px 25px !important; }
+}
