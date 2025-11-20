@@ -1,0 +1,82 @@
+/* ==========================================
+   ULTRA RANDOM BUTTON – FINAL v11
+   ========================================== */
+
+:root {
+    --b1: #3a7bd5 !important;
+    --b2: #00d2ff !important;
+    --radius: 60px !important;
+    --font: 'Arial', sans-serif !important;
+    --shadow: rgba(0,0,0,0.40) !important;
+    --size: 22px !important;
+}
+
+/* Container */
+.floating-call-container {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 40px) !important;
+    max-width: 420px !important;
+    pointer-events: none !important;
+    z-index: 999999 !important;
+}
+
+/* Button */
+.floating-call-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+
+    padding: 22px 40px !important;
+    border-radius: var(--radius) !important;
+    font-family: var(--font) !important;
+    font-size: var(--size) !important;
+    font-weight: 900 !important;
+
+    background: linear-gradient(135deg, var(--b1), var(--b2)) !important;
+    color: #fff !important;
+
+    pointer-events: auto !important;
+    text-decoration: none !important;
+
+    box-shadow: 0 18px 40px var(--shadow) !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35) !important;
+
+    transition: all .35s ease !important;
+}
+
+/* Icon */
+.floating-call-button .phone-icon {
+    margin-right: 16px !important;
+    transition: .3s ease !important;
+}
+
+/* Hover */
+.floating-call-button:hover {
+    transform: scale(1.07) translateY(-6px) !important;
+    letter-spacing: 1px !important;
+}
+.floating-call-button:hover .phone-icon {
+    transform: scale(1.35) !important;
+}
+
+/* Random Animations */
+.random-bounce { animation: bounce 2.3s infinite ease-in-out !important; }
+@keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)} }
+
+.random-pulse { animation: pulse 2.8s infinite ease-in-out !important; }
+@keyframes pulse { 0%,100%{transform:scale(1)}50%{transform:scale(1.08)} }
+
+.random-rotate { animation: rotate 6s infinite linear !important; }
+@keyframes rotate { 0%{transform:rotate(0deg)}100%{transform:rotate(360deg)} }
+
+/* Mobile */
+@media (max-width: 480px){
+    .floating-call-button{
+        padding:18px 25px !important;
+        font-size:calc(var(--size) - 1px) !important;
+    }
+}
