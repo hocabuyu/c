@@ -1,5 +1,6 @@
 /* ==========================================
-   ULTRA RANDOM BUTTON – FINAL v11
+   ULTRA RANDOM BUTTON – FINAL v13 PRO ULTRA
+   EVERYTHING CHANGES EVERY REFRESH
    ========================================== */
 
 :root {
@@ -7,8 +8,12 @@
     --b2: #00d2ff !important;
     --radius: 60px !important;
     --font: 'Arial', sans-serif !important;
+    --fontsize: 22px !important;
     --shadow: rgba(0,0,0,0.40) !important;
-    --size: 22px !important;
+    --weight: 900 !important;
+    --space: 0px !important;
+    --glow: 0 0 0px rgba(255,255,255,0.0) !important;
+    --gradient-angle: 135deg !important;
 }
 
 /* Container */
@@ -33,16 +38,17 @@
     padding: 22px 40px !important;
     border-radius: var(--radius) !important;
     font-family: var(--font) !important;
-    font-size: var(--size) !important;
-    font-weight: 900 !important;
+    font-size: var(--fontsize) !important;
+    font-weight: var(--weight) !important;
+    letter-spacing: var(--space) !important;
 
-    background: linear-gradient(135deg, var(--b1), var(--b2)) !important;
+    background: linear-gradient(var(--gradient-angle), var(--b1), var(--b2)) !important;
     color: #fff !important;
 
     pointer-events: auto !important;
     text-decoration: none !important;
 
-    box-shadow: 0 18px 40px var(--shadow) !important;
+    box-shadow: 0 20px 45px var(--shadow), var(--glow) !important;
     text-shadow: 0 2px 6px rgba(0,0,0,0.35) !important;
 
     transition: all .35s ease !important;
@@ -56,27 +62,24 @@
 
 /* Hover */
 .floating-call-button:hover {
-    transform: scale(1.07) translateY(-6px) !important;
-    letter-spacing: 1px !important;
-}
-.floating-call-button:hover .phone-icon {
-    transform: scale(1.35) !important;
+    transform: scale(1.09) translateY(-8px) rotateX(6deg) !important;
+    letter-spacing: calc(var(--space) + 1px) !important;
 }
 
-/* Random Animations */
+/* RANDOM ANIMATIONS */
 .random-bounce { animation: bounce 2.3s infinite ease-in-out !important; }
 @keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)} }
 
 .random-pulse { animation: pulse 2.8s infinite ease-in-out !important; }
 @keyframes pulse { 0%,100%{transform:scale(1)}50%{transform:scale(1.08)} }
 
-.random-rotate { animation: rotate 6s infinite linear !important; }
-@keyframes rotate { 0%{transform:rotate(0deg)}100%{transform:rotate(360deg)} }
+.random-tilt { animation: tilt 3.2s infinite ease-in-out !important; }
+@keyframes tilt { 0%,100%{transform:rotate(0deg)}50%{transform:rotate(3deg)} }
 
 /* Mobile */
 @media (max-width: 480px){
     .floating-call-button{
         padding:18px 25px !important;
-        font-size:calc(var(--size) - 1px) !important;
+        font-size:calc(var(--fontsize) - 1px) !important;
     }
 }
